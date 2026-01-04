@@ -1,0 +1,25 @@
+{
+  "name": "bus-route-planner-backend",
+  "version": "1.0.0",
+  "description": "公交路线规划系统后端服务",
+  "main": "api/server.js",
+  "Scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js"
+  },
+  "keywords": [
+    "bus",
+    "route",
+    "planner"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "iconv-lite": "^0.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

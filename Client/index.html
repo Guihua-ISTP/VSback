@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit Pro - 智能出行</title>
+    <!-- 引入新字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 听你的，加回 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/pro-max.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- 头部：回退到第一代经典设计 -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-route logo-icon"></i>
+                <span>Transit Pro</span>
+            </div>
+            <p class="subtitle">常州新北区智能公交大脑</p>
+        </header>
+
+        <!-- 搜索核心区 -->
+        <div class="search-island">
+            <!-- 新增 wrapper，专门用来约束起终点和交换按钮的位置 -->
+            <div class="inputs-wrapper">
+                <div class="input-group">
+                    <label class="input-label">起点</label>
+                    <div class="input-container">
+                        <i class="fa-regular fa-circle-dot start-dot"></i>
+                        <input type="text" id="start" placeholder="你在哪上车？" autocomplete="off">
+                        <div id="startSuggestions" class="suggestions-panel"></div>
+                    </div>
+                </div>
+
+                <!-- 交换按钮现在在 inputs-wrapper 内绝对居中 -->
+                <button class="swap-btn" id="swapBtn" title="交换起终点">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+
+                <div class="input-group">
+                    <label class="input-label">终点</label>
+                    <div class="input-container">
+                        <i class="fa-solid fa-location-dot end-dot"></i>
+                        <input type="text" id="end" placeholder="想去哪里？" autocomplete="off">
+                        <div id="endSuggestions" class="suggestions-panel"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="search-btn-primary" id="searchBtn">
+                <span>开始规划路线</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- 错误提示 -->
+        <div id="error" class="glass-panel error-panel" style="display: none;">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p id="errorMessage"></p>
+        </div>
+
+        <!-- 加载中 -->
+        <div id="loading" class="loading-container" style="display: none;">
+            <div class="loader"></div>
+            <p>正在计算最佳路径...</p>
+        </div>
+
+        <!-- 结果展示区 -->
+        <div id="planSelector" class="plans-grid" style="display: none;">
+            <!-- 方案1 -->
+            <div class="plan-card" data-mode="1">
+                <div class="card-header">
+                    <div class="tag tag-green">最省钱</div>
+                    <i class="fa-solid fa-coins card-icon"></i>
+                </div>
+                <div class="card-body">
+                    <div class="main-stat" id="plan1Cost">-</div>
+                    <div class="sub-stat" id="plan1Transfers">-</div>
+                </div>
+                <div class="card-footer">
+                    <span>查看详情</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- 方案2 -->
+            <div class="plan-card recommended" data-mode="2">
+                <div class="card-header">
+                    <div class="tag tag-orange">最快速</div>
+                    <i class="fa-solid fa-bolt card-icon"></i>
+                </div>
+                <div class="card-body">
+                    <div class="main-stat" id="plan2Time">-</div>
+                    <div class="sub-stat" id="plan2Transfers">-</div>
+                </div>
+                <div class="card-footer">
+                    <span>查看详情</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- 方案3 -->
+            <div class="plan-card" data-mode="3">
+                <div class="card-header">
+                    <div class="tag tag-purple">综合推荐</div>
+                    <i class="fa-solid fa-star card-icon"></i>
+                </div>
+                <div class="card-body">
+                    <div class="main-stat" id="plan3Time">-</div>
+                    <div class="sub-stat" id="plan3Transfers">-</div>
+                </div>
+                <div class="card-footer">
+                    <span>查看详情</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 详情展开区 -->
+        <div id="routeDetail" class="route-detail-panel glass-panel" style="display: none;">
+            <div class="detail-header">
+                <button class="back-btn" id="backBtn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>返回</span>
+                </button>
+                <div class="trip-summary">
+                    <h3 id="detailTitle">路线详情</h3>
+                    <span id="detailSubInfo" class="detail-tags"></span>
+                </div>
+            </div>
+            
+            <div class="timeline-container" id="detailContent">
+                <!-- JS 动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/config.js"></script>
+    <script src="Scripts/stations.js"></script>
+    <script src="Scripts/api.js"></script>
+    <script src="Scripts/autocomplete.js"></script>
+    <script src="Scripts/ui.js"></script>
+    <script src="Scripts/app.js"></script>
+</body>
+</html>
