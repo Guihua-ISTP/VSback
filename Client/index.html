@@ -1,36 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transit Pro - 智能出行</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare. com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入新字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 听你的，加回 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="Styles/pro-max.css">
 </head>
 <body>
-    <!-- 🎬 加载动画 -->
-    <div class="splash-screen" id="splashScreen">
-        <div class="splash-content">
-            <div class="splash-logo">
-                <i class="fa-solid fa-route"></i>
-            </div>
-            <h1 class="splash-title">Transit Pro</h1>
-            <p class="splash-subtitle">智能公交路线规划系统</p>
-            <div class="splash-loader">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 🌓 主题切换按钮 -->
-    <button class="theme-toggle" id="themeToggle" title="切换主题">
-        <i class="fa-solid fa-moon"></i>
-    </button>
-
-    <!-- 动态背景 -->
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -38,7 +18,7 @@
     </div>
 
     <div class="app-container">
-        <!-- 头部 -->
+        <!-- 头部：回退到第一代经典设计 -->
         <header class="app-header">
             <div class="logo">
                 <i class="fa-solid fa-route logo-icon"></i>
@@ -49,6 +29,7 @@
 
         <!-- 搜索核心区 -->
         <div class="search-island">
+            <!-- 新增 wrapper，专门用来约束起终点和交换按钮的位置 -->
             <div class="inputs-wrapper">
                 <div class="input-group">
                     <label class="input-label">起点</label>
@@ -59,7 +40,7 @@
                     </div>
                 </div>
 
-                <!-- 交换按钮 -->
+                <!-- 交换按钮现在在 inputs-wrapper 内绝对居中 -->
                 <button class="swap-btn" id="swapBtn" title="交换起终点">
                     <i class="fa-solid fa-arrow-right-arrow-left"></i>
                 </button>
@@ -96,7 +77,6 @@
         <div id="planSelector" class="plans-grid" style="display: none;">
             <!-- 方案1 -->
             <div class="plan-card" data-mode="1">
-                <div class="card-glow"></div>
                 <div class="card-header">
                     <div class="tag tag-green">最省钱</div>
                     <i class="fa-solid fa-coins card-icon"></i>
@@ -113,7 +93,6 @@
 
             <!-- 方案2 -->
             <div class="plan-card recommended" data-mode="2">
-                <div class="card-glow"></div>
                 <div class="card-header">
                     <div class="tag tag-orange">最快速</div>
                     <i class="fa-solid fa-bolt card-icon"></i>
@@ -130,7 +109,6 @@
 
             <!-- 方案3 -->
             <div class="plan-card" data-mode="3">
-                <div class="card-glow"></div>
                 <div class="card-header">
                     <div class="tag tag-purple">综合推荐</div>
                     <i class="fa-solid fa-star card-icon"></i>
@@ -171,6 +149,5 @@
     <script src="Scripts/autocomplete.js"></script>
     <script src="Scripts/ui.js"></script>
     <script src="Scripts/app.js"></script>
-    <script src="Scripts/theme. js"></script>
 </body>
 </html>
