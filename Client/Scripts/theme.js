@@ -8,12 +8,12 @@
     // --- 1. 启动动画控制（立即执行，避免卡顿） ---
     const splashScreen = document.getElementById('splashScreen');
     
-    // 设置最大显示时间 1 秒
+    // 设置最大显示时间 2.5 秒
     const splashTimeout = setTimeout(() => {
         if (splashScreen) {
             splashScreen.style.display = 'none';
         }
-    }, 1000);
+    }, 2500);
     
     // 页面完全加载后也关闭
     window.addEventListener('load', () => {
@@ -22,7 +22,7 @@
             if (splashScreen) {
                 splashScreen.style.display = 'none';
             }
-        }, 500);
+        }, 1500);
     });
     
     // --- 2. 主题切换逻辑 ---
@@ -36,8 +36,8 @@
         updateThemeIcon(savedTheme);
         
         // 点击切换主题
-        themeToggle. addEventListener('click', () => {
-            const currentTheme = html. getAttribute('data-theme');
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             html.setAttribute('data-theme', newTheme);
@@ -55,7 +55,7 @@
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
         if (icon) {
-            icon. className = theme === 'dark' 
+            icon.className = theme === 'dark' 
                 ? 'fa-solid fa-sun' 
                 : 'fa-solid fa-moon';
         }
@@ -63,7 +63,7 @@
     
     // --- 3. 方案卡片 3D 视差效果 ---
     setTimeout(() => {
-        const planCards = document.querySelectorAll('. plan-card');
+        const planCards = document.querySelectorAll('.plan-card');
         
         planCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -77,7 +77,7 @@
                 const rotateX = (y - centerY) / 15;
                 const rotateY = (centerX - x) / 15;
                 
-                card.style. transform = `
+                card.style.transform = `
                     perspective(1000px) 
                     rotateX(${rotateX}deg) 
                     rotateY(${rotateY}deg) 
@@ -115,7 +115,7 @@
             this.appendChild(ripple);
             
             setTimeout(() => {
-                ripple. remove();
+                ripple.remove();
             }, 600);
         });
     }
@@ -130,7 +130,7 @@
             }
             to {
                 opacity: 0;
-                transform: scale(2. 5);
+                transform: scale(2.5);
             }
         }
     `;

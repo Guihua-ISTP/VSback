@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="Styles/pro-max.css">
 </head>
 <body>
+    <!-- 启动动画 -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <i class="fa-solid fa-route splash-icon"></i>
+            <h1>Transit Pro</h1>
+            <div class="loader"></div>
+        </div>
+    </div>
+
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -25,6 +34,11 @@
                 <span>Transit Pro</span>
             </div>
             <p class="subtitle">常州新北区智能公交大脑</p>
+            
+            <!-- 主题切换按钮 -->
+            <button id="themeToggle" class="theme-toggle-btn" title="切换主题">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </header>
 
         <!-- 搜索核心区 -->
@@ -148,6 +162,7 @@
     <script src="Scripts/api.js"></script>
     <script src="Scripts/autocomplete.js"></script>
     <script src="Scripts/ui.js"></script>
+    <script src="Scripts/theme.js"></script>
     <script src="Scripts/app.js"></script>
 </body>
 </html>
