@@ -49,9 +49,9 @@
 }
 
 body {
-    background: var(--gradient-bg);
+    background:  var(--gradient-bg);
     background-size: 400% 400%;
-    /* animation: gradientShift 15s ease infinite; */
+    animation: gradientShift 15s ease infinite;
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -316,20 +316,9 @@ body {
 
 .inputs-wrapper {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    align-items: center;
-}
-
-.inputs-wrapper .input-group:nth-of-type(1) {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.inputs-wrapper .input-group:nth-of-type(2) {
-    grid-column: 1;
-    grid-row: 2;
 }
 
 .input-group {
@@ -354,10 +343,9 @@ body {
 }
 
 /* 输入框图标 */
-/* 修复输入框图标位置 */
 .start-dot {
     position: absolute;
-    left: 1. 5rem; /* 从 1.3rem 改为 1.5rem */
+    left: 1. 3rem;
     font-size: 1.2rem;
     color: var(--success-green);
     z-index: 2;
@@ -366,7 +354,7 @@ body {
 
 .end-dot {
     position: absolute;
-    left: 1.5rem; /* 从 1.3rem 改为 1.5rem */
+    left: 1.3rem;
     font-size: 1.2rem;
     color: var(--danger-red);
     z-index: 2;
@@ -381,7 +369,7 @@ body {
 /* 输入框样式 */
 .input-container input {
     width: 100%;
-    padding: 1.3rem 1.3rem 1.3rem 3.5rem;
+    padding: 1. 3rem 1.3rem 1.3rem 3.5rem;
     border: 2px solid transparent;
     border-radius: 20px;
     background: var(--input-bg);
@@ -421,8 +409,10 @@ body {
 
 /* 交换按钮 */
 .swap-btn {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
     width: 48px;
     height: 48px;
     border-radius:  50%;
@@ -437,18 +427,17 @@ body {
     justify-content: center;
     font-size: 1.2rem;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    margin-left: 1rem;
 }
 
 .swap-btn:hover {
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
     border-color: var(--primary-blue);
     color: var(--primary-blue);
-    transform: scale(1.1);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .swap-btn:active {
-    transform: rotate(180deg) scale(1.05);
+    transform: translateY(-50%) rotate(180deg) scale(1.05);
 }
 
 /* 主按钮 */
